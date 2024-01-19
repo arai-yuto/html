@@ -1,0 +1,297 @@
+body{
+  max-width: 100%;
+}
+h2{
+  margin-bottom: 10px;
+}
+header{
+  display: flex;
+}
+.header{
+  margin: 20px;
+  align-self: center;
+}
+
+.btn{
+  display: flex;
+  margin: 0px 0px 0px auto;
+}
+.btn_01{
+  margin: 20px 10px 20px 20px;
+  padding: 20px 80px 20px 80px ;
+  align-self: center;
+  color: white;
+  background-color: hotpink;
+}
+.btn_02{
+  margin: 20px 20px 20px 10px;
+  padding: 20px 80px 20px 80px ;
+  align-self: center;
+  color: white;
+  background-color: green;
+}
+
+.sec_01{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.mv img{
+  width: 100%;
+  height: auto;
+}
+
+.sec_02{
+  text-align: center;
+  padding: 20px;
+  margin: 80px 0px 80px 0px;
+}
+
+.sec_02 h1{
+  margin-bottom: 10px;
+}
+
+html {
+  overflow-y: scroll;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+  margin: 0;
+  padding: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+  font-style: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,th {
+  text-align: left;
+}
+q:before,q:after {
+  content: '';
+}
+object,embed {
+  vertical-align: top;
+}
+hr,legend {
+  display: none;
+}
+
+img,abbr,acronym,fieldset {
+  border: 0;
+}
+li {
+  list-style-type: none;
+}
+sup {
+  vertical-align: super;
+  font-size: 0.5em;
+}
+img {
+  vertical-align: top;
+}
+i {
+  font-style: normal;
+}
+/*----リセットcss*----/
+
+/*デザインcss↓*/
+.box_con02 {
+  max-width: 900px;
+  margin: 0  auto;
+}
+@media only screen and (max-width: 100%) {
+  .box_con02 {
+    width: 95%;
+  }
+}
+.box_con02 form {
+  width: 100%;
+}
+.box_con02 form table {
+  width: 100%;
+}
+.box_con02 form table tr {
+  position: relative;
+}
+.box_con02 form table tr:first-child td:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 1px;
+  border-bottom: solid 1px rgba(28, 46, 83, 0.5);
+}
+@media only screen and (max-width: 100%) {
+  .box_con02 form table tr:first-child td:before {
+    display: none;
+  }
+}
+.box_con02 form table tr th {
+  width: 30%;
+  font-weight: normal;
+  padding: 1em .5em;
+  background: white;
+  color: black;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 100%) {
+  .box_con02 form table tr th {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: .8em .2em;
+  }
+}
+.box_con02 form table tr th span {
+  background: hotpink;
+  padding: 0 .3em;
+  color: #fff;
+  margin-left: .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box_con02 form table tr th:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: solid 1px #fff;
+}
+.box_con02 form table tr td {
+  position: relative;
+  padding: 1em .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 100%) {
+  .box_con02 form table tr td {
+    padding: 1.5em .5em;
+    display: block;
+    width: 100%;
+  }
+}
+.box_con02 form table tr td:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: solid 1px rgba(28, 46, 83, 0.5);
+}
+.box_con02 form table tr .box_br {
+  display: block;
+}
+.box_con02 form table tr select, .box_con02 form table tr textarea, .box_con02 form table tr .wide {
+  width: 100%;
+  height: 3em;
+  padding: .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box_con02 form table tr textarea {
+  height: 10em;
+}
+.btnn {
+  text-align: center;
+  margin-top: 50px;
+}
+.btnn input {
+  display: inline-block;
+  background: green;
+  padding: 20px 80px 20px 80px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.btnn input:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}
+.sec_06{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+  padding: 100px;
+  background-color:  #eee;
+}
+
+.text_05-1{
+  text-align: center;
+  padding: 20px 80px 20px 80px ; 
+  background-color: white;
+}
+.text_05-1 P{
+  margin: 20px 20px 20px 10px;
+  padding: 20px 80px 20px 80px;
+  color: white;
+  background-color: hotpink;
+}
+
+.text_05-2{
+  text-align: center;
+  padding: 20px 80px 20px 80px ; 
+  background-color: white;
+}
+.text_05-2 P{
+  margin: 20px 20px 20px 10px;
+  padding: 20px 80px 20px 80px;
+  color: white;
+  background-color: green;
+}
+
+.sec_07{
+  text-align: center;
+  margin: 800px 0px 30px 0px;
+  border-bottom: 1px solid #333333;
+}
+.sec_07 h4{
+  padding: 5px;
+}
+.sec_07 p{
+  text-align: center;
+  align-self: center;
+  padding: 5px;
+}
+.sec_07-1{
+  padding-bottom: 80px;
+}
+
+.sec_08{
+  display: flex;
+  justify-content: space-between;
+  padding:20px 30px 90px 30px; 
+}
+.sec_08 p{
+  margin: 5px;
+}
+.sec_08-1{
+  flex-direction: column;
+
+}
+
+.sec_09{
+  border-top:1px solid #333333; ;
+}
+.sec_09 p{
+  margin: 15px;
+  text-align: center;
+}
