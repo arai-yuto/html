@@ -1,11 +1,11 @@
 <?php
-$name = $_POST();
-$kana = $_POST();
-$call = $_POST();
-$Email = $_POST();
-$goyouken = $_POST();
-$naiyou = $_POST();
-$acceptance_714 = $_POST();
+$name = $_POST("name");
+$kana = $_POST("kana");
+$call = $_POST("call");
+$Email = $_POST("Email");
+$goyouken = $_POST("goyouken");
+$naiyou = $_POST("naiyou");
+$acceptance_714 = $_POST("acceptance_714");
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -67,6 +67,13 @@ $acceptance_714 = $_POST();
     <tr>
       <th>メールアドレス<span>必須</span></th>
       <td><input size = "30" type = "text" class = "wide" name = "Email" value = "<?php = $Emaill ;?>"/></td>
+      <?php
+      if (preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+$/", $Email)) {
+      echo "メールアドレスは有効です。";
+      } else {
+      echo "メールアドレスが無効です。";
+      }
+      ?>
     </tr>
     <tr>
     <th>お問い合わせ項目<span>必須</span></th>
@@ -89,21 +96,24 @@ $acceptance_714 = $_POST();
 </form>
 </div>
 <p class="btnn">
-    <span><input type="submit" value="  確認  "/></span>
+    <span><input type="submit" name="kakunin" value="  確認  "/></span>
 </p>
 <?php
+$allFieldsFilled = array($name,$kana,$call,$Email,$goyouken,$naiyou,$acceptance_714);
+
 // フォームの必須項目がすべて埋まっているかのフラグ
-$_POST() = false;
+$allFieldsFilled = false;
 
 // ここでフォームの入力値をチェックする処理を実装する
 
 // 必須項目がすべて埋まっている場合
-if ($_POST()) {
+if ($allFieldsFilled) {
     echo '<button type="submit">送信</button>';
 } else {
     echo '<button type="button">確認</button>';
 }
 ?>
+
 </form>
 </div>
 <div class="sec_06">

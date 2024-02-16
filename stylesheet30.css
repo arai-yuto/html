@@ -49,13 +49,17 @@ header{
   padding: 20px;
   margin: 80px 0px 80px 0px;
 }
+.wrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .text_02{
   align-self: center;
   font-size: 20px;
 }
 .img_02{
-  width: auto;
-  height: auto;
+  width: 30%;
+  
 }
 
 .img_03{
@@ -112,7 +116,7 @@ header{
   padding: 20px 80px 20px 80px ; 
   background-color: white;
 }
-.text_05-1 P{
+.text_05-1 p{
   margin: 20px 20px 20px 10px;
   padding: 20px 80px 20px 80px;
   color: white;
@@ -124,7 +128,7 @@ header{
   padding: 20px 80px 20px 80px ; 
   background-color: white;
 }
-.text_05-2 a{
+.text_05-2 p{
   margin: 20px 20px 20px 10px;
   padding: 20px 80px 20px 80px;
   color: white;

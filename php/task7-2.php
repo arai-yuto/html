@@ -39,7 +39,7 @@ class PartStaff extends Staff {
 $staff1 = new PartStaff("S0001", "佐藤 一郎", "男性", 31 , "" );
 $staff2 = new PartStaff("S0002", "山田 花子", "女性", 25 , "" );
 $staff3 = new PartStaff("S0003", "鈴木 次郎", "男性", 27 , "" );
-$staff4 = new PartStaff("P0004", "田中 友子", "女性", 24,  "時給:900円");
+$staff4 = new PartStaff("P0004", "田中 友子", "女性", 24,  "時給：900円");
 $staff5 = new PartStaff("S0005", "中村 三郎", "男性", 27,  "");
 
 // 社員情報の表示
