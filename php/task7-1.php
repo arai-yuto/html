@@ -30,15 +30,15 @@
     }
 }
 // Staffのインスタンスを作成
-$staff1 = new Staff("佐藤 一郎",31,"男性");
-$staff2 = new Staff("山田 花子",25,'女性');
-$staff3 = new staff("鈴木 次郎",27,'男性');
+$staff[1] = new Staff("佐藤 一郎",31,"男性");
+$staff[2] = new Staff("山田 花子",25,'女性');
+$staff[3] = new staff("鈴木 次郎",27,'男性');
 
 // スタッフの情報を表示
-$staff1 -> tanaka();
-$staff1 -> show();
-
-
+foreach($staff as $arai){
+$arai -> tanaka();
+$arai -> show();
+}
   ?>
 </body>
 </html>

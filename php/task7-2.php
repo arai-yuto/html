@@ -8,46 +8,61 @@
 </head>
 <body>
 <?php
-class Staff {
-    public $id; // 社員番号
-    public $name; // 名前
-    public $sex; // 性別
-    public $age; // 年齢
+// 親クラス
+  class Staff {
+    protected $id; //社員番号
+    protected $name; // 名前
+    protected $age; // 年齢
+    protected $sex; //性別
+    protected static $i = 1;
 
-    public function __construct($id, $name, $sex, $age) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->sex = $sex;
-        $this->age = $age;
+    public function __construct($name,$age,$sex){
+      $this -> name = $name;
+      $this -> age = $age;
+      $this -> sex = $sex;
+    }
+    public function tanaka(){
+      $this -> id = self::$i++;
+      return $this -> id;
+    }
+    public function show(){
+      printf('(S%04d) %s %d歳 %s</br>', $this -> id, $this -> name, $this -> age, $this -> sex);
     }
 }
-
+// 子クラス
 class PartStaff extends Staff {
-    public $jikyu; // 時給
+    private $jikyu; // 時給
 
-    public function __construct($id, $name, $age, $sex, $jikyu) {
-        parent::__construct($id, $name, $age, $sex); // 親クラスのコンストラクタを呼び出す
-        $this->jikyu = $jikyu;
+    public function __construct($name, $age, $sex, $jikyu) {
+        parent::__construct($name, $age, $sex); // 親クラスのコンストラクタを呼び出す
+        $this -> jikyu = $jikyu;
     }
 
-    public function getDetails() {
-        return "{$this->id} {$this->name} {$this->age}歳 {$this->sex} {$this->jikyu} ";
+        public function show(){
+      printf('(S%04d) %s %d歳 %s 時給：%d円</br>', $this -> id, $this -> name, $this -> age, $this -> sex, $this -> jikyu);
     }
+
 }
 
 // 社員名簿の作成
-$staff1 = new PartStaff("S0001", "佐藤 一郎", "男性", 31 , "" );
-$staff2 = new PartStaff("S0002", "山田 花子", "女性", 25 , "" );
-$staff3 = new PartStaff("S0003", "鈴木 次郎", "男性", 27 , "" );
-$staff4 = new PartStaff("P0004", "田中 友子", "女性", 24,  "時給：900円");
-$staff5 = new PartStaff("S0005", "中村 三郎", "男性", 27,  "");
+$staff = [];
+$staff[0] = new Staff("佐藤 一郎",31,"男性");
+$staff[1] = new Staff("山田 花子",25,"女性");
+$staff[2] = new Staff("鈴木 次郎",27,"男性" );
+$staff[3] = new PartStaff("田中 友子", 24,"女性",900);
+$staff[4] = new Staff("中村 三郎",27,"男性");
+
+function AllPost(Staff $arai){
+  $arai -> tanaka();
+  $arai -> show();
+}
+
 
 // 社員情報の表示
-echo $staff1->getDetails() . "</br>";
-echo $staff2->getDetails() . "</br>";
-echo $staff3->getDetails() . "</br>";
-echo $staff4->getDetails() . "</br>";
-echo $staff5->getDetails() . "</br>";
+foreach($staff as $arai){
+  AllPost($arai);
+  }
+
 ?>
 </body>
 </html>
