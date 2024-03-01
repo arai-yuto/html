@@ -17,9 +17,10 @@ function maxnum($a, $b) {
   }
   $a = 9;
   $b = 21;
-  printf('$a = 9<br>');
-  printf('$b = 21<br>');
+  printf('$a = %d<br>', $a);
+  printf('$b = %d<br>', $b);
   printf('$aと$bのうち最大値は%dです。<br>', maxnum($a,$b));
+
   ?>
 </body>
 </html>

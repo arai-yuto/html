@@ -57,7 +57,6 @@ function AllPost(Staff $arai){
   $arai -> show();
 }
 
-
 // 社員情報の表示
 foreach($staff as $arai){
   AllPost($arai);

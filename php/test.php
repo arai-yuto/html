@@ -5,49 +5,34 @@
   <meta http-equiv="X-UA-Compatible" ccontent="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson1</title>
-  <style>
-      table {
-        border-collapse: collapse;
-      }
-      th{
-        border: solid 1px black;
-        padding: 3px;
-        text-align: center;
-        width: 100px
-      }
-      td {
-        border: solid 1px black;
-        text-align: center;
-      }
-    </style>
 </head>
 <body>
+ 
+<script>
+    const confirmButton = document.getElementById('confirm-button');
+    const submitButton = document.getElementById('submit-button');
 
-<?php
-
-$my_title = array(
-    array("商品", "価格", "税込価格")
-);
-$my_array = array(
-    array("鉛筆", "100円", "110円"),
-    array("消しゴム", "200円", "200円"),
-    array("定規", "300円", "330円")
-);
-echo "<table>";
-foreach ($my_title as $row) {
-  echo "<tr>";
-  foreach ($row as $cell) {
-      echo "<th>" . $cell . "</th>";
-  }
-}
-foreach ($my_array as $row) {
-    echo "<tr>";
-    foreach ($row as $cell) {
-        echo "<td>" . $cell . "</td>";
+    // 入力フィールドが変更されたときにチェック
+    function checkFields() {
+        const inputs = document.querySelectorAll('input[required]');
+        for (const input of inputs) {
+            if (!input.value) {
+                return false; // 未入力がある場合はfalseを返す
+            }
+        }
+        return true; // すべてのフィールドが埋まっている場合はtrueを返す
     }
-    echo "</tr>";
-}
-echo "</table>";
-?>
+
+    // フィールドが変更されたときにボタンの表示を切り替える
+    document.addEventListener('input', () => {
+        if (checkFields()) {
+            confirmButton.style.display = 'none';
+            submitButton.style.display = 'block';
+        } else {
+            confirmButton.style.display = 'block';
+            submitButton.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>
