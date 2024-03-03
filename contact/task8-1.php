@@ -7,6 +7,7 @@ $goyouken = $_POST["goyouken"];
 $naiyou = $_POST["naiyou"];
 $protect = $_POST["protect"];
 $check = $_POST["check"];
+$g = 0;
 ?>  
 <!DOCTYPE html>
 <html lang="ja">
@@ -47,48 +48,64 @@ $check = $_POST["check"];
       <div class="sec_02-2">
         <p>お問い合わせや業務内容に関するご質問は、電話またはこちらのお問い合わせフォームより承っております。</p>
         <p>後ほど担当よりご連絡させていただきます。</p>
-    </div>
- </div>
- <div class="box_con02">
-  <form method="post" action="task8-2.php">
-    <table class="formTable">
-    
-      <tr>
-        <th>お名前<span>必須</span></th>
-        <td><input size="20" type="text" class="wide" name="name">
-        <?php
-        if (empty($_POST["name"])) {
-            echo "「お名前」は必須項目です。忘れずに入力してください。";
+    </div>    
+    <?php
+        if (empty($name)) {
+          echo "</br><font color='red'>※「お名前」は必須項目です。忘れずに入力してください。</font></br>";
+          $g = 1;
+        }  
+        if (empty($kana)) {
+            echo "</br><font color='red'>※「ふりがな」は必須項目です。忘れずに入力してください。</font></br>";
+            $g = 1;
+          }  
+          if (empty($call)) {
+            echo "</br><font color='red'>※「電話番号」は必須項目です。忘れずに入力してください。</font></br>";
+            $g = 1;
+        }
+        if (!preg_match('/^\d{10,11}$/', $call)) {
+          echo "<font color='red'>※「電話番号」は10桁または11桁で入力してください。</font></br>";
+          $g = 1;
+        }  
+        if (empty($Email)) {
+          echo "</br><font color='red'>※「メールアドレス」は必須項目です。忘れずに入力してください。</font></br>";
+          $g = 1;
+        }
+        if (!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+$/", $Email)) {
+          echo "<font color='red'>※「メールアドレス」を正しく入力してください。</font></br>";
+          $g = 1;
+        }  
+        if (empty($goyouken)) {
+          echo "</br><font color='red'>※「お問い合わせ項目」は必須項目です。忘れずに選択してください。</font></br>";
+          $g = 1;
+        }
+        if (empty($naiyou)) {
+          echo "</br><font color='red'>※「お問い合わせ内容」は必須項目です。忘れずに入力してください。</font></br>";
+          $g = 1;
+        }
+        if (empty($protect)) {
+          echo "</br><font color='red'>※「個人情報保護方針」は必須項目です。内容を確認を行い忘れずにチェックしてください。</font></br>";
+          $g = 1;
         }
         ?>
-      </td>
+    </div>
+     <div class="box_con02">
+     <form method="post" action="task8-1.php">
+     <table class="formTable">
+      <tr>
+        <th>お名前<span>必須</span></th>
+        <td><input size="20" type="text" class="wide" name="name" value = "<?= $name ?>"></td>
       </tr>
       <tr>
         <th>ふりがな<span>必須</span></th>
-        <td><input size="20" type="text" class="wide" name="kana"></td>
+        <td><input size="20" type="text" class="wide" name="kana" value = "<?= $kana ?>"></td>
       </tr>
       <tr>
         <th>電話番号<span>必須</span></th>
-        <td><input size="30" type="text" class="wide" name="call">
-        <?php
-        if (empty($_POST["name"])) {
-            echo "「電話番号」は必須項目です。忘れずに入力してください。</br>";
-            }
-        if (!preg_match('/^\d{10,11}$/', $call)) {
-           echo "電話番号は10桁または11桁で入力してください。";
-           }
-           ?>
-      </td>
+        <td><input size="30" type="text" class="wide" name="call" value = "<?= $call ?>"></td>
       </tr>
       <tr>
         <th>メールアドレス<span>必須</span></th>
-        <td><input size="30" type="text" class="wide" name="Email">
-        <?php
-        if (!preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+$/", $Email)) {
-            echo "メールアドレスを正しく入力してください。";
-            }
-        ?>
-        </td>
+        <td><input size="30" type="text" class="wide" name="Email" value = "<?= $Email ?>"></td>
       </tr>
       <tr>
       <th>お問い合わせ項目<span>必須</span></th>
@@ -96,28 +113,21 @@ $check = $_POST["check"];
           <option value="">選択してください</option>
           <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
           <option value="リンクについて">リンクについて</option>
-        </select></td>
+          <input value = "<?= $goyouken ?>">
+          </select></td>
       </tr>
       <tr>
           <th>お問い合わせ内容<span>必須</span><br /></th>
-          <td><textarea name="naiyou" cols="50" rows="5"></textarea></td>
+          <td><textarea name="naiyou" cols="50" rows="5"></textarea><input  value = "<?= $naiyou ?>"></td>
       </tr>
       <tr>
         <th>個人情報保護方針<span>必須</span><br /></th>
-        <td><input type="checkbox" name="protect" aria-invalid="false" class="agree"><span class="check"><a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C31/index31.html"
+        <td><input type="checkbox" name="protect" aria-invalid="false" class="agree" value = "<?= $protect ?>"><span class="check"><a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C31/index31.html"
           class="head_btn">個人情報保護方針</a>に同意します。</span></td>
-       
         </tr>
     </table>
     <p class="btnn">
-      <span><input type="submit" value="確認" name="check"/></span>
-      <?php
-      $result = "";
-      if (isset($_POST["check"])) {
-          $result = "送信";
-      }
-      echo $result;
-      ?>
+      <span><input type="submit" value="確認"/></span>
     </p>
   </form>
 </div>

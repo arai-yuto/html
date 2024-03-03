@@ -1,12 +1,3 @@
-<?php 
-$name = $_POST["name"];
-$kana = $_POST["kana"];
-$call = $_POST["call"];
-$Email = $_POST["Email"];
-$goyouken = $_POST["goyouken"];
-$naiyou = $_POST["naiyou"];
-$protect = $_POST["protect"];
-?>  
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -23,7 +14,7 @@ $protect = $_POST["protect"];
     </div>
   <div class="btn">
       <div class="btn_01">
-        <a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C30/index30.html" class="head1_btn">ボタン01</a>
+        <a href="../" class="head1_btn">ボタン01</a>
       </div>
       <div class="btn_02">
         <a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C30/index30.html" class="head1_btn">ボタン02</a>
@@ -45,53 +36,52 @@ $protect = $_POST["protect"];
      </div>
       <div class="sec_02-2">
         <p>お問い合わせや業務内容に関するご質問は、電話またはこちらのお問い合わせフォームより承っております。</p>
-        <p>後ほど担当よりご連絡させていただきます。</p>
+        <p>後ほど担当よりご連絡させていただきます。</p><br><br><br>
+        <h1>送信完了しました。</h1>
     </div>
  </div>
  <div class="box_con02">
-  <form method="post" action="..//index31.html">
-  <table class="formTable">
-   
-    <tr>
-      <th>お名前<span>必須</span></th>
-      <td><input size="20" type="text" class="wide" name="お名前" /></td>
-    </tr>
-    <tr>
-      <th>ふりがな<span>必須</span></th>
-      <td><input size="20" type="text" class="wide" name="お名前" /></td>
-    </tr>
-    <tr>
-      <th>電話番号<span>必須</span></th>
-      <td><input size="30" type="text" class="wide" name="電話番号" /></td>
-    </tr>
-    <tr>
-      <th>メールアドレス<span>必須</span></th>
-      <td><input size="30" type="text" class="wide" name="Email" /></td>
-    </tr>
-    <tr>
-    <th>お問い合わせ項目<span>必須</span></th>
-    <td><select name="ご用件">
-        <option value="">選択してください</option>
-        <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
-        <option value="リンクについて">リンクについて</option>
-      </select></td>
-    </tr>
-    <tr>
-        <th>お問い合わせ内容<span>必須</span><br /></th>
-        <td><textarea name="お問い合わせ内容" cols="50" rows="5"></textarea></td>
-     </tr>
-     <tr>
-      <th>個人情報保護方針<span>必須</span><br /></th>
-      <td><input type="checkbox" name="acceptance-714" value="1" aria-invalid="false" class="agree"><span class="check"><a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C31/index31.html"
-        class="head_btn">個人情報保護方針</a>に同意します。</span></td>
+  <form method="post" action="task8-1.php">
+    <table class="formTable">
+    
+      <tr>
+        <th>お名前<span>必須</span></th>
+        <td><input size="20" type="text" class="wide" name="name" /></td>
       </tr>
+      <tr>
+        <th>ふりがな<span>必須</span></th>
+        <td><input size="20" type="text" class="wide" name="kana" /></td>
+      </tr>
+      <tr>
+        <th>電話番号<span>必須</span></th>
+        <td><input size="30" type="text" class="wide" name="call" /></td>
+      </tr>
+      <tr>
+        <th>メールアドレス<span>必須</span></th>
+        <td><input size="30" type="text" class="wide" name="Email" /></td>
+      </tr>
+      <tr>
+      <th>お問い合わせ項目<span>必須</span></th>
+      <td><select name="goyouken">
+          <option value="">選択してください</option>
+          <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
+          <option value="リンクについて">リンクについて</option>
+        </select></td>
+      </tr>
+      <tr>
+          <th>お問い合わせ内容<span>必須</span><br /></th>
+          <td><textarea name="naiyou" cols="50" rows="5"></textarea></td>
+      </tr>
+      <tr>
+        <th>個人情報保護方針<span>必須</span><br /></th>
+        <td><input type="checkbox" name="protect" aria-invalid="false" class="agree"><span class="check"><a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C31/index31.html"
+          class="head_btn">個人情報保護方針</a>に同意します。</span></td>
+        </tr>
     </table>
-</form>
-</div>
-<p class="btnn">
-    <span><input type="submit" value=" 確認 " /></span>
-</p>
-</form>
+    <p class="btnn">
+      <span><input type="submit" value="確認" /></span>
+    </p>
+  </form>
 </div>
 <div class="sec_06">
   <div class="text_05-1">
