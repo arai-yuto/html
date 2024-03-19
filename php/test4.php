@@ -52,6 +52,7 @@
             exit;
         };  
     };
+    <form method="post" action="task8-1.php">
 ?>
 </body>
 </html>

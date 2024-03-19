@@ -1,3 +1,50 @@
+<?php
+try {
+  $pdo = new PDO(
+    'mysql:host=localhost;dbname=consumer;charset=utf8mb4',
+    'root',
+    'root',
+    [
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]
+  );
+
+  // $pdo->query("DROP TABLE IF EXISTS contact");
+  // $pdo->query(
+  //   "CREATE TABLE contact(
+  //     id    INT PRIMARY KEY,
+  //     name  VARCHAR(128),
+  //     kana  VARCHAR(128),
+  //     phone VARCHAR(64),
+  //     Email VARCHAR(64),
+  //     goyouken VARCHAR(128),
+  //     naiyou TEXT
+  //      )"
+  //   );
+
+  $name = $_POST["name"];
+  $kana = $_POST["kana"];
+  $phone = $_POST["phone"];
+  $Email = $_POST["Email"];
+  $goyouken = $_POST["goyouken"];
+  $naiyou = $_POST["naiyou"];
+
+  $stmt = $pdo->prepare("INSERT INTO contact (id, name, kana, phone, Email, goyouken, naiyou) VALUES (?, ?, ?, ?, ?, ?, ?)");
+  $stmt->execute([$name, $kana, $phone, $Email, $goyouken, $naiyou]);
+  var_dump($name);
+  var_dump($phone);
+
+$stmt = $pdo-> query("SELECT * FROM contact");
+$results = $stmt->fetchAll();
+// print_r($result);
+var_dump($result);
+
+} catch (PDOException $e) {
+  echo $e->getMessage() . '<br>';
+  exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -37,52 +84,10 @@
       <div class="sec_02-2">
         <p>お問い合わせや業務内容に関するご質問は、電話またはこちらのお問い合わせフォームより承っております。</p>
         <p>後ほど担当よりご連絡させていただきます。</p><br><br><br>
-        <h1>送信完了しました。</h1>
+        <?= "<font color='blue'><h1>送信完了しました。</h1></font>"; ?>
     </div>
  </div>
- <div class="box_con02">
-  <form method="post" action="task8-1.php">
-    <table class="formTable">
-    
-      <tr>
-        <th>お名前<span>必須</span></th>
-        <td><input size="20" type="text" class="wide" name="name" /></td>
-      </tr>
-      <tr>
-        <th>ふりがな<span>必須</span></th>
-        <td><input size="20" type="text" class="wide" name="kana" /></td>
-      </tr>
-      <tr>
-        <th>電話番号<span>必須</span></th>
-        <td><input size="30" type="text" class="wide" name="phone" /></td>
-      </tr>
-      <tr>
-        <th>メールアドレス<span>必須</span></th>
-        <td><input size="30" type="text" class="wide" name="Email" /></td>
-      </tr>
-      <tr>
-      <th>お問い合わせ項目<span>必須</span></th>
-      <td><select name="goyouken">
-          <option value="">選択してください</option>
-          <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
-          <option value="リンクについて">リンクについて</option>
-        </select></td>
-      </tr>
-      <tr>
-          <th>お問い合わせ内容<span>必須</span><br /></th>
-          <td><textarea name="naiyou" cols="50" rows="5"></textarea></td>
-      </tr>
-      <tr>
-        <th>個人情報保護方針<span>必須</span><br /></th>
-        <td><input type="checkbox" name="protect" aria-invalid="false" class="agree"><span class="check"><a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C31/index31.html"
-          class="head_btn">個人情報保護方針</a>に同意します。</span></td>
-        </tr>
-    </table>
-    <p class="btnn">
-      <span><input type="submit" value="確認" /></span>
-    </p>
-  </form>
-</div>
+ 
 <div class="sec_06">
   <div class="text_05-1">
     <h2>こちらからご購入ください</h2>
