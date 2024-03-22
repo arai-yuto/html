@@ -12,7 +12,7 @@ try {
   // $pdo->query("DROP TABLE IF EXISTS contact");
   // $pdo->query(
   //   "CREATE TABLE contact(
-  //     id    INT PRIMARY KEY,
+  //     id    INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   //     name  VARCHAR(128),
   //     kana  VARCHAR(128),
   //     phone VARCHAR(64),
@@ -29,8 +29,15 @@ try {
   $goyouken = $_POST["goyouken"];
   $naiyou = $_POST["naiyou"];
 
-  $stmt = $pdo->prepare("INSERT INTO contact (id, name, kana, phone, Email, goyouken, naiyou) VALUES (?, ?, ?, ?, ?, ?, ?)");
-  $stmt->execute([$name, $kana, $phone, $Email, $goyouken, $naiyou]);
+  $stmt = $pdo->prepare("INSERT INTO contact  VALUES (0, ?, ?, ?, ?, ?, ?)");
+  $stmt -> bindParam(1,$name,PDO::PARAM_STR);
+  $stmt -> bindParam(2,$kana,PDO::PARAM_STR);
+  $stmt -> bindParam(3,$phone,PDO::PARAM_STR);
+  $stmt -> bindParam(4,$Email,PDO::PARAM_STR);
+  $stmt -> bindParam(5,$goyouken,PDO::PARAM_STR);
+  $stmt -> bindParam(6,$naiyou,PDO::PARAM_STR);
+
+  $stmt->execute();
   var_dump($name);
   var_dump($phone);
 
