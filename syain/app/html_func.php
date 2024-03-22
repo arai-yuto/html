@@ -79,28 +79,30 @@ function show_create()
   show_form("","","","","","create","登録");
 }
 
-function show_edit($id, $name, $age, $work, $create, $delete)
+function show_edit($id)
 {
+  getsyain($id);
+var_dump($id);
+exit;
   echo <<<TABLE4
-  
-  TABLE4;
+  <table>
+    <tr>
+     <th>社員番号</th>
+     <th>名前</th>
+     <th>年齢</th>
+     <th>労働形態</th>
+   </tr>
+    <tr>
+      <td>$id</td>
+      <td>$name</td>
+      <td>$age</td>
+      <td>$work</td>
+    </tr>
+TABLE4;
 }
 ?>
 
 
-<table>
-  <tr>
-    <th>社員番号</th>
-    <th>名前</th>
-    <th>年齢</th>
-    <th>労働形態</th>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
 
 
 
