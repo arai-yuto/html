@@ -2,7 +2,7 @@
 require_once('common.php');
 
 if (isset($_POST["status"])) {
-  if (isset($_POST["old_id"])) {
+  if (isset($_POST["id"])) {
     $id = $_POST["id"];
   }
   if (isset($_POST["name"])) {
@@ -35,4 +35,26 @@ if (isset($_POST["status"])) {
     header("Location: index.php");
     exit();
   }
+  if ($_POST["status"] == "delete") {
+    if ($db -> deletesyain($id) == false) {
+      $error ="DBエラー";
+      header("Location: syain_delete.php?error={$error}&id={$id}");
+      exit();
+    } 
+    else {
+      header("Location: index.php"); 
+      exit();
+    }
+  }
+  // if ($_POST["status"] == "update") {
+  //   if ($db -> updatesyain($id, $name, $age, $work, $old_id) == false) {
+  //     $error ="DBエラー";
+  //     header("Location: syain_update.php?error={$error}&id={$id}");
+  //     exit();
+  //   } 
+  //   else {
+  //     header("Location: index.php"); 
+  //     exit();
+  //   }
+  // }
 }

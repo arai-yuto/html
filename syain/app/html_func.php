@@ -78,6 +78,17 @@ function show_create()
   $error = get_error();
   show_form("","","","","","create","登録");
 }
+function show_delete($menber)
+{
+  $error = get_error();
+  show_form($menber['id'], $menber['name'], $menber['age'], $menber['work'],"","delete","削除");
+}
+
+// function show_update($menber)
+// {
+//   $error = get_error();
+//   show_form($menber['id'], $menber['name'], $menber['age'], $menber['work'],"","update","更新");
+// }
 
 function show_edit($menber)
 {
@@ -96,41 +107,9 @@ function show_edit($menber)
       <td>{$menber['work']}</td>
     </tr>
     </table>
-    <a href="syain_update.php">社員情報の更新</a></br>
-    <a href="syain_delete.php">社員情報の削除</a></br>
+    <a href="syain_update.php?id={$menber[id]}">社員情報の更新</a></br>
+    <a href="syain_delete.php?id={$menber[id]}">社員情報の削除</a></br>
 TABLE4;
-}
-
-function show_comfirm($menber)
-{
-  echo <<<TABLE5
-  <table>
-  <tr>
-      <th>ID : </th>
-      <td>{$menber['id']}</td>
-  </tr>
-  <tr>
-      <th>名前 : </th>
-      <td>{$menber['name']}</td>
-  </tr>
-  <tr>
-      <th>年齢 : </th>
-      <td>{$menber['age']}</td>
-  </tr>
-    <tr>
-      <th>住所 : </th>
-      <td>{$menber['work']}</td>
-  </tr>
-  </table>
-TABLE5;
-}
-function show_delete($id)
-{
-  echo <<<BOTTON2
-  <p>削除しますか？</p>
-  <button><a href="syain_create.php">はい</a></button>
-  <button><a href="syain_create.php">いいえ</a></button>
-BOTTON2;
 }
 
 ?>

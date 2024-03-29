@@ -82,16 +82,34 @@ function getsyain($id)
     return false;
   }
   
-  function delete($id)
+  function deletesyain($id)
   {
-      try{
-        $this -> connect();
-        $stmt = $this -> $pdo -> prepare("SELECT * FROM syain WHERE id = ? ;");
-        $stmt -> bindParam(1, $id, PDO::PARAM_INT);
-        $menber = $stmt -> execute();
-      } catch (PDOException $e) {
-        echo $e -> getMessage().'<br>';
-        exit;
-      }
-}
+    try{
+      $this -> connect();
+      $stmt = $this -> $pdo -> prepare("DELETE * FROM syain WHERE id = ? ;");
+      $stmt -> bindParam(1, $id, PDO::PARAM_INT);
+      $result = $stmt -> execute();
+      return true; 
+    } catch (PDOException $e) {
+      echo $e -> getMessage().'<br>';
+      exit;
+    }
+    return false;
+  }
+
+  function updatesyain($id)
+  {
+    try{
+      $this -> connect();
+      $stmt = $this -> $pdo -> prepare("UPDATE * FROM syain WHERE id = ? ;");
+      $stmt -> bindParam(1, $id, PDO::PARAM_INT);
+      $result = $stmt -> execute();
+      return true; 
+    } catch (PDOException $e) {
+      echo $e -> getMessage().'<br>';
+      exit;
+    }
+    return false;
+  }
+
 }
