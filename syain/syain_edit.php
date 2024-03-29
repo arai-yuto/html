@@ -3,7 +3,7 @@ require_once('common.php');
 
 show_top('社員情報');
 $id = $_GET["id"];
-
-show_edit();
+$menber = $db -> getsyain($id);
+show_edit($menber);
 show_down(true);
 ?> 

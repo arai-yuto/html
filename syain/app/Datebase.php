@@ -37,7 +37,7 @@ Class Datebase
   }
 
 function getsyain($id)
-  {
+{
     try{
       $this -> connect();
       $stmt = $this -> $pdo -> prepare("SELECT * FROM syain WHERE id = ? ;");
@@ -56,7 +56,7 @@ function getsyain($id)
       exit;
     }
   }
-
+  
   function idexist($id)
   {
     if($this -> getsyain($id) != null){
@@ -64,7 +64,7 @@ function getsyain($id)
     }
     return false;
   }
-
+  
   function createsyain($id, $name ,$age, $work)
   {
     try {
@@ -81,4 +81,17 @@ function getsyain($id)
     }
     return false;
   }
+  
+  function delete($id)
+  {
+      try{
+        $this -> connect();
+        $stmt = $this -> $pdo -> prepare("SELECT * FROM syain WHERE id = ? ;");
+        $stmt -> bindParam(1, $id, PDO::PARAM_INT);
+        $menber = $stmt -> execute();
+      } catch (PDOException $e) {
+        echo $e -> getMessage().'<br>';
+        exit;
+      }
+}
 }

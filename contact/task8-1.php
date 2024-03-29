@@ -130,11 +130,11 @@ $g = 1;
       </tr>
       <tr>
           <th>お問い合わせ内容<span>必須</span><br /></th>
-          <td><textarea name="naiyou" cols="50" rows="5"></textarea><input  value = "<?= $naiyou ?>"></td>
+          <td><textarea name="naiyou" cols="50" rows="5"><?= $naiyou ?></textarea></td>
       </tr>
       <tr>
         <th>個人情報保護方針<span>必須</span><br /></th>
-        <td><input type="checkbox" name="protect" aria-invalid="false" class="agree"  <?php if($protect == 'on'){echo 'checked';} ?>><span class="check"><a href="file:///c%3A/Users/kakpa/OneDrive/%E8%AA%B2%E9%A1%8C/%E8%AA%B2%E9%A1%8C31/index31.html"
+        <td><input type="checkbox" name="protect" aria-invalid="false" class="agree"  <?php if($protect == 'on'){echo 'checked';} ?>><span class="check"><a href="../"
           class="head_btn">個人情報保護方針</a>に同意します。</span></td>
         </tr>
     </table>

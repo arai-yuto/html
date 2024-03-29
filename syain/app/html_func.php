@@ -79,11 +79,8 @@ function show_create()
   show_form("","","","","","create","登録");
 }
 
-function show_edit($id)
+function show_edit($menber)
 {
-  getsyain($id);
-var_dump($id);
-exit;
   echo <<<TABLE4
   <table>
     <tr>
@@ -92,17 +89,51 @@ exit;
      <th>年齢</th>
      <th>労働形態</th>
    </tr>
-    <tr>
-      <td>$id</td>
-      <td>$name</td>
-      <td>$age</td>
-      <td>$work</td>
+   <tr>  
+      <td>{$menber['id']}</td>
+      <td>{$menber['name']}</td>
+      <td>{$menber['age']}</td>
+      <td>{$menber['work']}</td>
     </tr>
+    </table>
+    <a href="syain_update.php">社員情報の更新</a></br>
+    <a href="syain_delete.php">社員情報の削除</a></br>
 TABLE4;
 }
+
+function show_comfirm($menber)
+{
+  echo <<<TABLE5
+  <table>
+  <tr>
+      <th>ID : </th>
+      <td>{$menber['id']}</td>
+  </tr>
+  <tr>
+      <th>名前 : </th>
+      <td>{$menber['name']}</td>
+  </tr>
+  <tr>
+      <th>年齢 : </th>
+      <td>{$menber['age']}</td>
+  </tr>
+    <tr>
+      <th>住所 : </th>
+      <td>{$menber['work']}</td>
+  </tr>
+  </table>
+TABLE5;
+}
+function show_delete($id)
+{
+  echo <<<BOTTON2
+  <p>削除しますか？</p>
+  <button><a href="syain_create.php">はい</a></button>
+  <button><a href="syain_create.php">いいえ</a></button>
+BOTTON2;
+}
+
 ?>
-
-
 
 
 
