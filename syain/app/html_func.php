@@ -78,17 +78,18 @@ function show_create()
   $error = get_error();
   show_form("","","","","","create","登録");
 }
+
 function show_delete($menber)
 {
   $error = get_error();
   show_form($menber['id'], $menber['name'], $menber['age'], $menber['work'],"","delete","削除");
 }
 
-// function show_update($menber)
-// {
-//   $error = get_error();
-//   show_form($menber['id'], $menber['name'], $menber['age'], $menber['work'],"","update","更新");
-// }
+function show_update($menber,$id)
+{
+  $error = get_error();
+  show_form($menber['id'], $menber['name'], $menber['age'], $menber['work'],$id,"update","更新");
+}
 
 function show_edit($menber)
 {
@@ -107,7 +108,7 @@ function show_edit($menber)
       <td>{$menber['work']}</td>
     </tr>
     </table>
-    <a href="syain_update.php?id={$menber[id]}">社員情報の更新</a></br>
+    <a href="syain_update.php?id={$menber[id]}&{$old_id}">社員情報の更新</a></br>
     <a href="syain_delete.php?id={$menber[id]}">社員情報の削除</a></br>
 TABLE4;
 }

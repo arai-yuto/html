@@ -17,6 +17,7 @@ if (isset($_POST["status"])) {
   if (isset($_POST["old_id"])) {
     $old_id = $_POST["old_id"];
   }
+
   if ($_POST["status"] == "create") {
     if (check_input($id, $name, $age, $work, $error) == false) {
       header("Location: syain_create.php?error={$error}");
@@ -35,26 +36,25 @@ if (isset($_POST["status"])) {
     header("Location: index.php");
     exit();
   }
+
   if ($_POST["status"] == "delete") {
     if ($db -> deletesyain($id) == false) {
-      $error ="DBエラー";
+      $error = "DBエラー";
       header("Location: syain_delete.php?error={$error}&id={$id}");
       exit();
-    } 
-    else {
-      header("Location: index.php"); 
+    }
+    header("Location: index.php");
+    exit();
+  }
+  
+  if ($_POST["status"] == "update") {
+    if ($db -> updatesyain($id, $name, $age, $work, $old_id) == false) {
+      $error ="DBエラー";
+      header("Location: syain_update.php?error={$error}&id={$old_id}");
       exit();
     }
+      header("Location: index.php"); 
+      exit();
   }
-  // if ($_POST["status"] == "update") {
-  //   if ($db -> updatesyain($id, $name, $age, $work, $old_id) == false) {
-  //     $error ="DBエラー";
-  //     header("Location: syain_update.php?error={$error}&id={$id}");
-  //     exit();
-  //   } 
-  //   else {
-  //     header("Location: index.php"); 
-  //     exit();
-  //   }
-  // }
 }
+
