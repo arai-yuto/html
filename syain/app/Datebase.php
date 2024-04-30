@@ -97,7 +97,8 @@ function getsyain($id)
     return false;
   }
 
-  function updatesyain($id, $name, $age, $work, $old_id)
+  function updatesyain(
+  )
   {
     try{
       $this -> connect();
